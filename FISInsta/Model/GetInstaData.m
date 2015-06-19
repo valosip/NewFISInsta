@@ -20,6 +20,9 @@
 //@property (strong,nonatomic)NSString *jsonPagination;
 
 @property (strong,nonatomic)NSDictionary *dic;
+
+@property (nonatomic, strong) void (^completionBlock)(void);
+
 @end
 
 @implementation GetInstaData
@@ -45,7 +48,7 @@
             NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
             NSString *likes = dataDic[@"likes"][@"count"];
             NSArray *HashTages = dataDic[@"tags"];
-            NSLog(@"images%@/n/n",url);
+            //NSLog(@"images%@/n/n",url);
             InstaObject *dataObject = [[InstaObject alloc]initWithImageUrl:url
                                                                      Likes:likes.integerValue HashTages:HashTages];
             [self.dataStore.instaObjects addObject:dataObject];
@@ -54,19 +57,24 @@
     
     //NSLog(@"getInstaObjs: %ld", self.runThrough);
     ++self.runThrough;
+    NSLog(@"Finish getInstaObjs");
+    NSLog(@"%@",self.dataStore.instaObjects);
     
     
     
 }
 
--(void)getDataStoreReady{
+-(void)getDataStoreReadyWithCompletion:(void (^)(void))completionBlock {
     //make initial url
+    
+    self.completionBlock = completionBlock;
+    
     NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@",self.userToken];
     
     //get json until there is no more images and put the dictionaries into the array
     [self httpRequestWithURL:url];
     
-    
+    NSLog(@"Finish the getDataStoreReady");
     
 }
 
@@ -84,8 +92,12 @@
             [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"]];
         }else{
             
-            NSLog(@"Over");
+            NSLog(@"Finish the httpRequestWithURL");
             [self getInstaObjs];
+            
+            // .. done fetching everything now
+            self.completionBlock();
+            self.completionBlock = nil;
         }
         
         

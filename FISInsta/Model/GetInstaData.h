@@ -16,5 +16,6 @@
 
 //-(void)getInstaObjs;
 //-(void)getJsonDictionary;
--(void)getDataStoreReady;
+-(void)getDataStoreReadyWithCompletion:(void (^)(void))completionBlock;
+
 @end

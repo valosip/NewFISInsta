@@ -20,12 +20,22 @@
     
     [super viewDidLoad];
     GetInstaData *data = [[GetInstaData alloc]initWithUserToken:@"2028182358.3be1650.57335e2df16b4597b51d7f5e6ff3e2f2"];
-    [data getDataStoreReady];
     
+    [data getDataStoreReadyWithCompletion:^{
+        [self updateUI];
+    }];
+
     
-    self.dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
-    NSLog(@"%@", self.dataStore);
+//    self.dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
+//    NSLog(@"%@", self.dataStore.instaObjects);
+//    NSLog(@"dataStore count = %ld",self.dataStore.instaObjects.count);
+//    NSLog(@"HELLO WORLD !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)updateUI
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
