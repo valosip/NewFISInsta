@@ -33,34 +33,9 @@
     return self;
 }
 
+
 -(void)getInstaObjs{
     [self getJsonDictionary];
-    for(NSDictionary *jsonDic in self.jsonDictionariesArray){
-        NSArray *dataArray = jsonDic[@"data"];
-        for(NSDictionary *dataDic in dataArray){
-            NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
-            NSString *likes = dataDic[@"likes"][@"count"];
-            NSArray *HashTages = dataDic[@"tags"];
-            NSLog(@"images%@/n/n",url);
-            InstaObject *dataObject = [[InstaObject alloc]initWithImageUrl:url
-                                                                     Likes:likes.integerValue HashTages:HashTages];
-            [self.dataStore.instaObjects addObject:dataObject];
-        }
-    }
-    
-    
-    
-}
-
--(void)getJsonDictionary{
-    //make initial url
-    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@%@",self.userToken,self.jsonPagination];
-    
-    //get json until there is no more images and put the dictionaries into the array
-    [self httpRequestWithURL:url];
-    
-    
-    
 }
 
 -(void)httpRequestWithURL:(NSString *)url{
@@ -69,13 +44,79 @@
         self.dic = responseObject;
         [self.jsonDictionariesArray addObject:self.dic];
         NSLog(@"here!!!!");
+        //NSLog(@":%@",responseObject);
         if(self.dic[@"pagination"][@"next_url"]){
             [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"]];
         }
+        else{
+            [self breakApartJsonArrays];
+        }
+        //NSLog(@":%@",_jsonDictionariesArray);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
 }
+-(void)breakApartJsonArrays{
+    for(NSDictionary *jsonDic in self.jsonDictionariesArray){
+        NSArray *dataArray = jsonDic[@"data"];
+        for(NSDictionary *dataDic in dataArray){
+            NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
+            NSString *likes = dataDic[@"likes"][@"count"];
+            NSLog(@"%@",likes);
+            NSArray *HashTages = dataDic[@"tags"];
+            NSLog(@"images%@/n/n",url);
+            InstaObject *dataObject = [[InstaObject alloc]initWithImageUrl:url
+                                                                     Likes:likes.integerValue HashTages:HashTages];
+            [self.dataStore.instaObjects addObject:dataObject];
+            NSLog(@"::%@",dataObject);
+        }
+    }
+}
+
+//-(void)getInstaObjs{
+//    [self getJsonDictionary];
+//    for(NSDictionary *jsonDic in self.jsonDictionariesArray){
+//        NSArray *dataArray = jsonDic[@"data"];
+//        for(NSDictionary *dataDic in dataArray){
+//            NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
+//            NSString *likes = dataDic[@"likes"][@"count"];
+//            NSArray *HashTages = dataDic[@"tags"];
+//            NSLog(@"images%@/n/n",url);
+//            InstaObject *dataObject = [[InstaObject alloc]initWithImageUrl:url
+//                                                                     Likes:likes.integerValue HashTages:HashTages];
+//            [self.dataStore.instaObjects addObject:dataObject];
+//        }
+//    }
+//    
+//    
+//    
+//}
+//
+-(void)getJsonDictionary{
+    //make initial url
+    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@%@",self.userToken,self.jsonPagination];
+    
+    //get json until there is no more images and put the dictionaries into the array
+    [self httpRequestWithURL:url];
+
+    
+    
+}
+//
+//-(void)httpRequestWithURL:(NSString *)url{
+//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]init];
+//    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        self.dic = responseObject;
+//        [self.jsonDictionariesArray addObject:self.dic];
+//        NSLog(@"here!!!!");
+//        if(self.dic[@"pagination"][@"next_url"]){
+//            [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"]];
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
+//    
+//}
 
 @end
