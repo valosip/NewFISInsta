@@ -12,5 +12,7 @@
 @property (strong,nonatomic)NSURL *imageUrl;
 @property (strong, nonatomic)NSArray *hashTags;
 @property (nonatomic) NSUInteger likes;
-
+-(instancetype)initWithImageUrl:(NSURL *)imageUrl
+                          Likes:(NSUInteger)likes
+                      HashTages:(NSArray *)hashTags;
 @end
