@@ -13,7 +13,7 @@
 #import "InstaObjectsDataStore.h"
 @interface GetInstaData()
 @property (strong,nonatomic)NSString *userToken;
-@property (strong,nonatomic)NSMutableArray *jsonDictionariesArray;
+//@property (strong,nonatomic)NSMutableArray *jsonDictionariesArray;
 //@property (strong,nonatomic)NSString *jsonPagination;
 @property (strong,nonatomic)InstaObjectsDataStore *dataStore;
 
@@ -27,16 +27,20 @@
     if(self){
         _userToken = userToken;
 //        _jsonPagination = @"";
-        _jsonDictionariesArray = [[NSMutableArray alloc]init];
+//        _jsonDictionariesArray = [[NSMutableArray alloc]init];
         _dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
     }
     return self;
 }
 
 -(void)getInstaObjs{
-    [self getJsonDictionary];
-    NSLog(@"%@",self.jsonDictionariesArray);
-    for(NSDictionary *jsonDic in self.jsonDictionariesArray){
+    NSMutableArray *jsonDictionariesArray = [[NSMutableArray alloc]init];
+    //initially the self.jsonPagination is @""
+    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@",self.userToken];
+    [self httpRequestWithURL:url Array:jsonDictionariesArray];
+    NSMutableArray *array = [self getJsonDictionary];
+    NSLog(@"%@",array);
+    for(NSDictionary *jsonDic in array){
         NSArray *dataArray = jsonDic[@"data"];
         for(NSDictionary *dataDic in dataArray){
             NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
@@ -53,10 +57,11 @@
     
 }
 
--(NSMutableArray)jsonDictionariesArray{
+-(NSMutableArray *)getJsonDictionary{
+    NSMutableArray *jsonDictionariesArray = [[NSMutableArray alloc]init];
     //initially the self.jsonPagination is @""
     NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@",self.userToken];
-    [self httpRequestWithURL:url];
+    [self httpRequestWithURL:url Array:jsonDictionariesArray];
     
     //get json until there is no more images and put the dictionaries into the array
 //    do {
@@ -73,17 +78,18 @@
 //    } while ([self.dic[@"pagination"][@"next_max_id"] isEqualToString:@""]);
     
     
-    
+    return jsonDictionariesArray;
 }
 
--(void)httpRequestWithURL:(NSString *)url{
+-(void)httpRequestWithURL:(NSString *)url Array:(NSMutableArray *)array{
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]init];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         self.dic = responseObject;
-        [self.jsonDictionariesArray addObject:self.dic];
+        [array addObject:self.dic];
         NSLog(@"here!!!!");
         if(self.dic[@"pagination"][@"next_url"]){
-            [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"]];
+            [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"] Array:array];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
