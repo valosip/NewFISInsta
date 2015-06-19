@@ -13,6 +13,7 @@
 #import "InstaObjectsDataStore.h"
 @interface GetInstaData()
 
+@property (strong,nonatomic)InstaObjectsDataStore *dataStore;
 @property (nonatomic) NSUInteger runThrough;
 @property (strong,nonatomic)NSString *userToken;
 @property (strong,nonatomic)NSMutableArray *jsonDictionariesArray;
@@ -58,7 +59,7 @@
     
 }
 
--(void)getJsonDictionary{
+-(void)getDataStoreReady{
     //make initial url
     NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@",self.userToken];
     

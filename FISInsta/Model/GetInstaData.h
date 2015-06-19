@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "InstaObjectsDataStore.h"
+
 
 
 @interface GetInstaData : NSObject
 -(instancetype)initWithUserToken:(NSString *)userToken;
-@property (strong,nonatomic)InstaObjectsDataStore *dataStore;
 
--(void)getInstaObjs;
--(void)getJsonDictionary;
+
+//-(void)getInstaObjs;
+//-(void)getJsonDictionary;
+-(void)getDataStoreReady;
 @end
