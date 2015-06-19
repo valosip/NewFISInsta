@@ -139,10 +139,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Zuf-db-00J" kind="relationship" relationship="viewControllers" id="g95-nU-qX3"/>
-                        <segue destination="HaH-vA-cQa" kind="relationship" relationship="viewControllers" id="aKH-xm-mpb"/>
                         <segue destination="Tpq-Fg-FYB" kind="relationship" relationship="viewControllers" id="kCK-1w-Q2V"/>
                         <segue destination="PDa-qh-W79" kind="relationship" relationship="viewControllers" id="L3b-jf-Jym"/>
+                        <segue destination="HaH-vA-cQa" kind="relationship" relationship="viewControllers" id="aKH-xm-mpb"/>
+                        <segue destination="Zuf-db-00J" kind="relationship" relationship="viewControllers" id="g95-nU-qX3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ps5-NM-k4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
