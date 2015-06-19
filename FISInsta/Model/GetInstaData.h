@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface GetInstaData : NSObject
+-(instancetype)initWithUserToken:(NSString *)userToken;
 -(void)getInstaData;
 @end
