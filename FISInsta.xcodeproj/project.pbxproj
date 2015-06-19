@@ -22,6 +22,7 @@
 		3DF58AC51B34C54300CC3F0C /* HashTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF58AC41B34C54300CC3F0C /* HashTagTableViewController.m */; };
 		3DF58AC81B34C57500CC3F0C /* HighLowSortTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF58AC71B34C57500CC3F0C /* HighLowSortTableViewController.m */; };
 		3DF58ACB1B34C58C00CC3F0C /* LowHighSortTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF58ACA1B34C58C00CC3F0C /* LowHighSortTableViewController.m */; };
+		3DF58ACE1B34D33400CC3F0C /* SortMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF58ACD1B34D33400CC3F0C /* SortMachine.m */; };
 		E28C178DECD635E6D90655F5 /* libPods-FISInsta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 470088F42D893F716DA3AD28 /* libPods-FISInsta.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		3DF58AC71B34C57500CC3F0C /* HighLowSortTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighLowSortTableViewController.m; path = Controller/HighLowSortTableViewController.m; sourceTree = "<group>"; };
 		3DF58AC91B34C58C00CC3F0C /* LowHighSortTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LowHighSortTableViewController.h; path = Controller/LowHighSortTableViewController.h; sourceTree = "<group>"; };
 		3DF58ACA1B34C58C00CC3F0C /* LowHighSortTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LowHighSortTableViewController.m; path = Controller/LowHighSortTableViewController.m; sourceTree = "<group>"; };
+		3DF58ACC1B34D33400CC3F0C /* SortMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortMachine.h; path = Model/SortMachine.h; sourceTree = "<group>"; };
+		3DF58ACD1B34D33400CC3F0C /* SortMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SortMachine.m; path = Model/SortMachine.m; sourceTree = "<group>"; };
 		470088F42D893F716DA3AD28 /* libPods-FISInsta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FISInsta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3B13105E67632B08A0BD12 /* Pods-FISInsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISInsta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FISInsta/Pods-FISInsta.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +162,8 @@
 				3DF58ABE1B34B07300CC3F0C /* UserInfo.m */,
 				3D50AAFD1B33A36C0078E9C2 /* GetInstaData.h */,
 				3D50AAFE1B33A36C0078E9C2 /* GetInstaData.m */,
+				3DF58ACC1B34D33400CC3F0C /* SortMachine.h */,
+				3DF58ACD1B34D33400CC3F0C /* SortMachine.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				3DF58ACB1B34C58C00CC3F0C /* LowHighSortTableViewController.m in Sources */,
 				3D50AAF51B33992B0078E9C2 /* AppDelegate.m in Sources */,
 				3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */,
+				3DF58ACE1B34D33400CC3F0C /* SortMachine.m in Sources */,
 				3D50AACB1B3397EF0078E9C2 /* main.m in Sources */,
 				3DF58ABF1B34B07300CC3F0C /* UserInfo.m in Sources */,
 			);
