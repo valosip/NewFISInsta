@@ -16,6 +16,7 @@
 		3D50AAF61B33992B0078E9C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF41B33992B0078E9C2 /* ViewController.m */; };
 		3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF81B33995A0078E9C2 /* InstaObject.m */; };
 		3D50AAFC1B339DEE0078E9C2 /* InstaObjectsDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAFB1B339DEE0078E9C2 /* InstaObjectsDataStore.m */; };
+		E28C178DECD635E6D90655F5 /* libPods-FISInsta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 470088F42D893F716DA3AD28 /* libPods-FISInsta.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		055B98AC022297F48276CD9B /* Pods-FISInsta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISInsta.release.xcconfig"; path = "Pods/Target Support Files/Pods-FISInsta/Pods-FISInsta.release.xcconfig"; sourceTree = "<group>"; };
 		3D50AAC51B3397EF0078E9C2 /* FISInsta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FISInsta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D50AAC91B3397EF0078E9C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D50AACA1B3397EF0078E9C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		3D50AAF81B33995A0078E9C2 /* InstaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstaObject.m; path = Model/InstaObject.m; sourceTree = "<group>"; };
 		3D50AAFA1B339DEE0078E9C2 /* InstaObjectsDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstaObjectsDataStore.h; path = Model/InstaObjectsDataStore.h; sourceTree = "<group>"; };
 		3D50AAFB1B339DEE0078E9C2 /* InstaObjectsDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstaObjectsDataStore.m; path = Model/InstaObjectsDataStore.m; sourceTree = "<group>"; };
+		470088F42D893F716DA3AD28 /* libPods-FISInsta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FISInsta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3B13105E67632B08A0BD12 /* Pods-FISInsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISInsta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FISInsta/Pods-FISInsta.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28C178DECD635E6D90655F5 /* libPods-FISInsta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +77,8 @@
 				3D50AAC71B3397EF0078E9C2 /* FISInsta */,
 				3D50AAE11B3397EF0078E9C2 /* FISInstaTests */,
 				3D50AAC61B3397EF0078E9C2 /* Products */,
+				9BA12D458DD221A75C6484B9 /* Pods */,
+				52520A0613743E2B2D69E5BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +160,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		52520A0613743E2B2D69E5BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				470088F42D893F716DA3AD28 /* libPods-FISInsta.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BA12D458DD221A75C6484B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC3B13105E67632B08A0BD12 /* Pods-FISInsta.debug.xcconfig */,
+				055B98AC022297F48276CD9B /* Pods-FISInsta.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D50AAE81B3397EF0078E9C2 /* Build configuration list for PBXNativeTarget "FISInsta" */;
 			buildPhases = (
+				498AF38D5D4958C5CAFD811E /* Check Pods Manifest.lock */,
 				3D50AAC11B3397EF0078E9C2 /* Sources */,
 				3D50AAC21B3397EF0078E9C2 /* Frameworks */,
 				3D50AAC31B3397EF0078E9C2 /* Resources */,
+				19369ED4406454F7DAD5B162 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,6 +273,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19369ED4406454F7DAD5B162 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FISInsta/Pods-FISInsta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		498AF38D5D4958C5CAFD811E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D50AAC11B3397EF0078E9C2 /* Sources */ = {
@@ -381,6 +440,7 @@
 		};
 		3D50AAE91B3397EF0078E9C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC3B13105E67632B08A0BD12 /* Pods-FISInsta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FISInsta/Info.plist;
@@ -391,6 +451,7 @@
 		};
 		3D50AAEA1B3397EF0078E9C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 055B98AC022297F48276CD9B /* Pods-FISInsta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FISInsta/Info.plist;
@@ -452,6 +513,7 @@
 				3D50AAEA1B3397EF0078E9C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D50AAEB1B3397EF0078E9C2 /* Build configuration list for PBXNativeTarget "FISInstaTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +522,7 @@
 				3D50AAED1B3397EF0078E9C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
