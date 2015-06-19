@@ -9,9 +9,11 @@
 #import "ViewController.h"
 #import "GetInstaData.h"
 #import "InstaObjectsDataStore.h"
+#import <InstagramSimpleOAuth.h>
 
 @interface ViewController ()
 @property (strong,nonatomic) InstaObjectsDataStore *dataStore;
+@property (strong,nonatomic) NSString *userToken;
 @end
 
 @implementation ViewController
@@ -25,17 +27,25 @@
         [self updateUI];
     }];
 
-    
-//    self.dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
-//    NSLog(@"%@", self.dataStore.instaObjects);
-//    NSLog(@"dataStore count = %ld",self.dataStore.instaObjects.count);
-//    NSLog(@"HELLO WORLD !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void)updateUI
 {
     
+}
+
+
+-(void)login{
+    InstagramSimpleOAuthViewController*viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"3be1650732ff4b45b1887c3b333994ed"
+            clientSecret:@"68cf1c07835d49908ddffbd94580dde9"
+             callbackURL:[NSURL URLWithString:@"http://fis.valosip.com"]
+              completion:^(InstagramLoginResponse *response, NSError *error) {
+                            NSLog(@"My Access Token is: %@", response.accessToken);
+                            self.userToken = response.accessToken;
+              }];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
