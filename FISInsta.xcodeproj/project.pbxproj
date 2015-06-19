@@ -15,6 +15,7 @@
 		3D50AAF51B33992B0078E9C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF21B33992B0078E9C2 /* AppDelegate.m */; };
 		3D50AAF61B33992B0078E9C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF41B33992B0078E9C2 /* ViewController.m */; };
 		3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF81B33995A0078E9C2 /* InstaObject.m */; };
+		3D50AAFC1B339DEE0078E9C2 /* InstaObjectsDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAFB1B339DEE0078E9C2 /* InstaObjectsDataStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		3D50AAF41B33992B0078E9C2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
 		3D50AAF71B33995A0078E9C2 /* InstaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstaObject.h; path = Model/InstaObject.h; sourceTree = "<group>"; };
 		3D50AAF81B33995A0078E9C2 /* InstaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstaObject.m; path = Model/InstaObject.m; sourceTree = "<group>"; };
+		3D50AAFA1B339DEE0078E9C2 /* InstaObjectsDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstaObjectsDataStore.h; path = Model/InstaObjectsDataStore.h; sourceTree = "<group>"; };
+		3D50AAFB1B339DEE0078E9C2 /* InstaObjectsDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstaObjectsDataStore.m; path = Model/InstaObjectsDataStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 			children = (
 				3D50AAF71B33995A0078E9C2 /* InstaObject.h */,
 				3D50AAF81B33995A0078E9C2 /* InstaObject.m */,
+				3D50AAFA1B339DEE0078E9C2 /* InstaObjectsDataStore.h */,
+				3D50AAFB1B339DEE0078E9C2 /* InstaObjectsDataStore.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D50AAFC1B339DEE0078E9C2 /* InstaObjectsDataStore.m in Sources */,
 				3D50AAF61B33992B0078E9C2 /* ViewController.m in Sources */,
 				3D50AAF51B33992B0078E9C2 /* AppDelegate.m in Sources */,
 				3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */,
