@@ -10,5 +10,5 @@
 
 @interface GetInstaData : NSObject
 -(instancetype)initWithUserToken:(NSString *)userToken;
--(void)getInstaData;
+-(void)getInstaObjs;
 @end

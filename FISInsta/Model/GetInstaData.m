@@ -14,7 +14,7 @@
 @interface GetInstaData()
 @property (strong,nonatomic)NSString *userToken;
 @property (strong,nonatomic)NSMutableArray *jsonDictionariesArray;
-@property (strong,nonatomic)NSString *jsonPagination;
+//@property (strong,nonatomic)NSString *jsonPagination;
 @property (strong,nonatomic)InstaObjectsDataStore *dataStore;
 
 @property (strong,nonatomic)NSDictionary *dic;
@@ -26,15 +26,16 @@
     self = [super init];
     if(self){
         _userToken = userToken;
-        _jsonPagination = @"";
+//        _jsonPagination = @"";
         _jsonDictionariesArray = [[NSMutableArray alloc]init];
         _dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
     }
     return self;
 }
 
--(void)getInstaData{
+-(void)getInstaObjs{
     [self getJsonDictionary];
+    NSLog(@"%@",self.jsonDictionariesArray);
     for(NSDictionary *jsonDic in self.jsonDictionariesArray){
         NSArray *dataArray = jsonDic[@"data"];
         for(NSDictionary *dataDic in dataArray){
@@ -52,28 +53,42 @@
     
 }
 
--(void)getJsonDictionary{
-    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]init];
-    
+-(NSMutableArray)jsonDictionariesArray{
     //initially the self.jsonPagination is @""
-    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@%@",self.userToken,self.jsonPagination];
+    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@",self.userToken];
+    [self httpRequestWithURL:url];
     
     //get json until there is no more images and put the dictionaries into the array
-    do {
-        [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSDictionary *jsonDictionary = responseObject;
-            NSLog(@"%@",jsonDictionary);
-            self.jsonPagination = jsonDictionary[@"pagination"][@"next_max_id"];
-            [self.jsonDictionariesArray addObject:jsonDictionary];
-            NSLog(@"here!!!!");
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
+//    do {
+//        [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            self.dic = responseObject;
+//            NSLog(@"%@",self.dic);
+//            self.jsonPagination = self.dic[@"pagination"][@"next_max_id"];
+//            [self.jsonDictionariesArray addObject:self.dic];
+//            NSLog(@"here!!!!");
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            NSLog(@"Error: %@", error);
+//        }];
+//
+//    } while ([self.dic[@"pagination"][@"next_max_id"] isEqualToString:@""]);
+    
+    
+    
+}
 
-    } while (self.jsonPagination);
-    
-    
-    
+-(void)httpRequestWithURL:(NSString *)url{
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]init];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.dic = responseObject;
+        [self.jsonDictionariesArray addObject:self.dic];
+        NSLog(@"here!!!!");
+        if(self.dic[@"pagination"][@"next_url"]){
+            [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"]];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
 }
 
 @end
