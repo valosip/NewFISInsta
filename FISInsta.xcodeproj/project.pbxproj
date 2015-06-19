@@ -18,6 +18,7 @@
 		3D50AAFC1B339DEE0078E9C2 /* InstaObjectsDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAFB1B339DEE0078E9C2 /* InstaObjectsDataStore.m */; };
 		3D50AAFF1B33A36C0078E9C2 /* GetInstaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAFE1B33A36C0078E9C2 /* GetInstaData.m */; };
 		3DF58ABF1B34B07300CC3F0C /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF58ABE1B34B07300CC3F0C /* UserInfo.m */; };
+		3DF58AC21B34C19A00CC3F0C /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF58AC11B34C19A00CC3F0C /* UserInfoTableViewController.m */; };
 		E28C178DECD635E6D90655F5 /* libPods-FISInsta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 470088F42D893F716DA3AD28 /* libPods-FISInsta.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 		3D50AAFE1B33A36C0078E9C2 /* GetInstaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetInstaData.m; path = Model/GetInstaData.m; sourceTree = "<group>"; };
 		3DF58ABD1B34B07300CC3F0C /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfo.h; path = Model/UserInfo.h; sourceTree = "<group>"; };
 		3DF58ABE1B34B07300CC3F0C /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfo.m; path = Model/UserInfo.m; sourceTree = "<group>"; };
+		3DF58AC01B34C19A00CC3F0C /* UserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoTableViewController.h; path = Controller/UserInfoTableViewController.h; sourceTree = "<group>"; };
+		3DF58AC11B34C19A00CC3F0C /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoTableViewController.m; path = Controller/UserInfoTableViewController.m; sourceTree = "<group>"; };
 		470088F42D893F716DA3AD28 /* libPods-FISInsta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FISInsta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3B13105E67632B08A0BD12 /* Pods-FISInsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FISInsta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FISInsta/Pods-FISInsta.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +169,8 @@
 				3D50AAF21B33992B0078E9C2 /* AppDelegate.m */,
 				3D50AAF31B33992B0078E9C2 /* ViewController.h */,
 				3D50AAF41B33992B0078E9C2 /* ViewController.m */,
+				3DF58AC01B34C19A00CC3F0C /* UserInfoTableViewController.h */,
+				3DF58AC11B34C19A00CC3F0C /* UserInfoTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			files = (
 				3D50AAFF1B33A36C0078E9C2 /* GetInstaData.m in Sources */,
 				3D50AAFC1B339DEE0078E9C2 /* InstaObjectsDataStore.m in Sources */,
+				3DF58AC21B34C19A00CC3F0C /* UserInfoTableViewController.m in Sources */,
 				3D50AAF61B33992B0078E9C2 /* ViewController.m in Sources */,
 				3D50AAF51B33992B0078E9C2 /* AppDelegate.m in Sources */,
 				3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */,
