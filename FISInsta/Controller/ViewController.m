@@ -12,6 +12,7 @@
 #import <InstagramSimpleOAuth.h>
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (strong,nonatomic) InstaObjectsDataStore *dataStore;
 @property (strong,nonatomic) NSString *userToken;
 @end
@@ -33,7 +34,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
-    
+    self.dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
     if (!self.userToken) {
         [self login];
     }
@@ -41,7 +42,7 @@
 
 -(void)updateUI
 {
-    
+    self.userNameLabel.text = self.dataStore.userInfo.userName;
 }
 -(void)login{
     InstagramSimpleOAuthViewController*viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"3be1650732ff4b45b1887c3b333994ed"
@@ -52,7 +53,8 @@
                             self.userToken = response.accessToken;
                   GetInstaData *data = [[GetInstaData alloc]initWithUserToken:self.userToken];
                   [data getDataStoreReadyWithCompletion:^{
-                      
+                      NSLog(@"USERNAME !!!!!!!!!!! %@",self.dataStore.userInfo.userName);
+                      [self updateUI];
                   }];
                 
               }];

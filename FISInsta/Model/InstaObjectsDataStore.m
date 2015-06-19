@@ -14,6 +14,7 @@
     self = [super init];
     if(self){
         _instaObjects = [[NSMutableArray alloc]init];
+        _userInfo = [[UserInfo alloc]init];
     }
     return self;
 }

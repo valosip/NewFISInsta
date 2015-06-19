@@ -41,7 +41,7 @@
 -(void)getInstaObjs{
     
     //[self getJsonDictionary];
-    
+    [self loadUserInfo];
     for(NSDictionary *jsonDic in self.jsonDictionariesArray){
         NSArray *dataArray = jsonDic[@"data"];
         for(NSDictionary *dataDic in dataArray){
@@ -73,8 +73,18 @@
     
     //get json until there is no more images and put the dictionaries into the array
     [self httpRequestWithURL:url];
+//    [self loadUserInfo];
     
     NSLog(@"Finish the getDataStoreReady");
+    
+}
+
+-(void) loadUserInfo{
+    NSDictionary *temp = self.jsonDictionariesArray[0];
+    NSDictionary *userInfoDic = temp[@"data"][0][@"user"];
+    self.dataStore.userInfo.userName = userInfoDic[@"username"];
+    self.dataStore.userInfo.profilePic = [NSURL URLWithString:userInfoDic[@"profile_picture"]];
+    self.dataStore.userInfo.fullName = userInfoDic[@"full_name"];
     
 }
 
@@ -93,6 +103,7 @@
         }else{
             
             NSLog(@"Finish the httpRequestWithURL");
+            
             [self getInstaObjs];
             
             // .. done fetching everything now
