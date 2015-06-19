@@ -63,15 +63,16 @@
         for(NSDictionary *dataDic in dataArray){
             NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
             NSString *likes = dataDic[@"likes"][@"count"];
-            NSLog(@"%@",likes);
+            //NSLog(@"%@",likes);
             NSArray *HashTages = dataDic[@"tags"];
-            NSLog(@"images%@/n/n",url);
+            //NSLog(@"images%@/n/n",url);
             InstaObject *dataObject = [[InstaObject alloc]initWithImageUrl:url
                                                                      Likes:likes.integerValue HashTages:HashTages];
             [self.dataStore.instaObjects addObject:dataObject];
-            NSLog(@"::%@",dataObject);
+            NSLog(@"::%@",[NSString stringWithFormat:@"%lu",(unsigned long)dataObject.likes]);
         }
     }
+    NSLog(@"%lu", (unsigned long)[self.dataStore.instaObjects count]);
 }
 
 //-(void)getInstaObjs{
