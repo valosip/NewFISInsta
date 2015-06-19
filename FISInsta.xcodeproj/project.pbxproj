@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3D50AACB1B3397EF0078E9C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AACA1B3397EF0078E9C2 /* main.m */; };
-		3D50AACE1B3397EF0078E9C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AACD1B3397EF0078E9C2 /* AppDelegate.m */; };
-		3D50AAD11B3397EF0078E9C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAD01B3397EF0078E9C2 /* ViewController.m */; };
 		3D50AAD41B3397EF0078E9C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D50AAD21B3397EF0078E9C2 /* Main.storyboard */; };
 		3D50AAD61B3397EF0078E9C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D50AAD51B3397EF0078E9C2 /* Images.xcassets */; };
 		3D50AAD91B3397EF0078E9C2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D50AAD71B3397EF0078E9C2 /* LaunchScreen.xib */; };
 		3D50AAE51B3397EF0078E9C2 /* FISInstaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAE41B3397EF0078E9C2 /* FISInstaTests.m */; };
+		3D50AAF51B33992B0078E9C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF21B33992B0078E9C2 /* AppDelegate.m */; };
+		3D50AAF61B33992B0078E9C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF41B33992B0078E9C2 /* ViewController.m */; };
+		3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D50AAF81B33995A0078E9C2 /* InstaObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +31,18 @@
 		3D50AAC51B3397EF0078E9C2 /* FISInsta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FISInsta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D50AAC91B3397EF0078E9C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D50AACA1B3397EF0078E9C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D50AACC1B3397EF0078E9C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3D50AACD1B3397EF0078E9C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D50AACF1B3397EF0078E9C2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D50AAD01B3397EF0078E9C2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3D50AAD31B3397EF0078E9C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D50AAD51B3397EF0078E9C2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3D50AAD81B3397EF0078E9C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3D50AADE1B3397EF0078E9C2 /* FISInstaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FISInstaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D50AAE31B3397EF0078E9C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D50AAE41B3397EF0078E9C2 /* FISInstaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FISInstaTests.m; sourceTree = "<group>"; };
+		3D50AAF11B33992B0078E9C2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Controller/AppDelegate.h; sourceTree = "<group>"; };
+		3D50AAF21B33992B0078E9C2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Controller/AppDelegate.m; sourceTree = "<group>"; };
+		3D50AAF31B33992B0078E9C2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = Controller/ViewController.h; sourceTree = "<group>"; };
+		3D50AAF41B33992B0078E9C2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = Controller/ViewController.m; sourceTree = "<group>"; };
+		3D50AAF71B33995A0078E9C2 /* InstaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstaObject.h; path = Model/InstaObject.h; sourceTree = "<group>"; };
+		3D50AAF81B33995A0078E9C2 /* InstaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstaObject.m; path = Model/InstaObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +84,9 @@
 		3D50AAC71B3397EF0078E9C2 /* FISInsta */ = {
 			isa = PBXGroup;
 			children = (
-				3D50AACC1B3397EF0078E9C2 /* AppDelegate.h */,
-				3D50AACD1B3397EF0078E9C2 /* AppDelegate.m */,
-				3D50AACF1B3397EF0078E9C2 /* ViewController.h */,
-				3D50AAD01B3397EF0078E9C2 /* ViewController.m */,
-				3D50AAD21B3397EF0078E9C2 /* Main.storyboard */,
+				3D50AAF01B3398050078E9C2 /* Controller */,
+				3D50AAEF1B3398000078E9C2 /* View */,
+				3D50AAEE1B3397FA0078E9C2 /* Model */,
 				3D50AAD51B3397EF0078E9C2 /* Images.xcassets */,
 				3D50AAD71B3397EF0078E9C2 /* LaunchScreen.xib */,
 				3D50AAC81B3397EF0078E9C2 /* Supporting Files */,
@@ -117,6 +118,34 @@
 				3D50AAE31B3397EF0078E9C2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D50AAEE1B3397FA0078E9C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D50AAF71B33995A0078E9C2 /* InstaObject.h */,
+				3D50AAF81B33995A0078E9C2 /* InstaObject.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3D50AAEF1B3398000078E9C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D50AAD21B3397EF0078E9C2 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3D50AAF01B3398050078E9C2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D50AAF11B33992B0078E9C2 /* AppDelegate.h */,
+				3D50AAF21B33992B0078E9C2 /* AppDelegate.m */,
+				3D50AAF31B33992B0078E9C2 /* ViewController.h */,
+				3D50AAF41B33992B0078E9C2 /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D50AAD11B3397EF0078E9C2 /* ViewController.m in Sources */,
-				3D50AACE1B3397EF0078E9C2 /* AppDelegate.m in Sources */,
+				3D50AAF61B33992B0078E9C2 /* ViewController.m in Sources */,
+				3D50AAF51B33992B0078E9C2 /* AppDelegate.m in Sources */,
+				3D50AAF91B33995A0078E9C2 /* InstaObject.m in Sources */,
 				3D50AACB1B3397EF0078E9C2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
