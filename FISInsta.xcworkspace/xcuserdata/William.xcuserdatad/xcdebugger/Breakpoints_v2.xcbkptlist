@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FISInsta/Controller/ViewController.m"
-            timestampString = "456374084.20819"
+            filePath = "FISInsta/Model/GetInstaData.m"
+            timestampString = "456414278.471059"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-httpRequestWithURL:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

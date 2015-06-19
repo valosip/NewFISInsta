@@ -12,10 +12,11 @@
 #import "InstaObject.h"
 #import "InstaObjectsDataStore.h"
 @interface GetInstaData()
+
+@property (nonatomic) NSUInteger runThrough;
 @property (strong,nonatomic)NSString *userToken;
 @property (strong,nonatomic)NSMutableArray *jsonDictionariesArray;
-@property (strong,nonatomic)NSString *jsonPagination;
-@property (strong,nonatomic)InstaObjectsDataStore *dataStore;
+//@property (strong,nonatomic)NSString *jsonPagination;
 
 @property (strong,nonatomic)NSDictionary *dic;
 @end
@@ -26,7 +27,7 @@
     self = [super init];
     if(self){
         _userToken = userToken;
-        _jsonPagination = @"";
+//        _jsonPagination = @"";
         _jsonDictionariesArray = [[NSMutableArray alloc]init];
         _dataStore = [InstaObjectsDataStore sharedInstaObjectDataStore];
     }
@@ -34,7 +35,9 @@
 }
 
 -(void)getInstaObjs{
-    [self getJsonDictionary];
+    
+    //[self getJsonDictionary];
+    
     for(NSDictionary *jsonDic in self.jsonDictionariesArray){
         NSArray *dataArray = jsonDic[@"data"];
         for(NSDictionary *dataDic in dataArray){
@@ -48,13 +51,16 @@
         }
     }
     
+    //NSLog(@"getInstaObjs: %ld", self.runThrough);
+    ++self.runThrough;
+    
     
     
 }
 
 -(void)getJsonDictionary{
     //make initial url
-    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@%@",self.userToken,self.jsonPagination];
+    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/media/recent/?access_token=%@",self.userToken];
     
     //get json until there is no more images and put the dictionaries into the array
     [self httpRequestWithURL:url];
@@ -64,17 +70,32 @@
 }
 
 -(void)httpRequestWithURL:(NSString *)url{
+    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]init];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         self.dic = responseObject;
         [self.jsonDictionariesArray addObject:self.dic];
-        NSLog(@"here!!!!");
+        //NSLog(@"here!!!!");
+        
         if(self.dic[@"pagination"][@"next_url"]){
+            
             [self httpRequestWithURL:self.dic[@"pagination"][@"next_url"]];
+        }else{
+            
+            NSLog(@"Over");
+            [self getInstaObjs];
         }
+        
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+    
+    
+    NSLog(@"httpRequestWithUrl: %ld", self.runThrough);
+    self.runThrough++;
+
     
 }
 
