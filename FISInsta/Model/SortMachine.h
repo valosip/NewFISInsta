@@ -11,6 +11,6 @@
 @interface SortMachine : NSObject
 -(NSArray *)sortByLikesHighToLow;
 -(NSArray *)sortByLikesLowToHigh;
--(NSArray *)sortByHashTag;
+-(NSArray *)sortByHashTagCount;
 
 @end
