@@ -35,7 +35,7 @@
 -(void)updateUI
 {
     SortMachine *machine = [[SortMachine alloc]init];
-    NSArray *array = [machine sortByHashTagCount];
+    NSArray *array = [machine sortByLikesHighToLow];
     //self.userNameLabel.text = self.dataStore.userInfo.userName;
 }
 -(void)login{
