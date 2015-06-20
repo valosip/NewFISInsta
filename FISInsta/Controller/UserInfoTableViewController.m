@@ -10,6 +10,7 @@
 #import "GetInstaData.h"
 #import "InstaObjectsDataStore.h"
 #import <InstagramSimpleOAuth.h>
+#import "SortMachine.h"
 
 @interface UserInfoTableViewController ()
 @property (strong,nonatomic) InstaObjectsDataStore *dataStore;
@@ -33,22 +34,24 @@
 
 -(void)updateUI
 {
+    SortMachine *machine = [[SortMachine alloc]init];
+    NSArray *array = [machine sortByLikesHighToLow];
     //self.userNameLabel.text = self.dataStore.userInfo.userName;
 }
 -(void)login{
     InstagramSimpleOAuthViewController*viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"3be1650732ff4b45b1887c3b333994ed"
-                                                                                                        clientSecret:@"68cf1c07835d49908ddffbd94580dde9"
-                                                                                                         callbackURL:[NSURL URLWithString:@"http://fis.valosip.com"]
-                                                                                                          completion:^(InstagramLoginResponse *response, NSError *error) {
-                                                                                                              NSLog(@"My Access Token is: %@", response.accessToken);
-                                                                                                              self.userToken = response.accessToken;
-                                                                                                              GetInstaData *data = [[GetInstaData alloc]initWithUserToken:self.userToken];
-                                                                                                              [data getDataStoreReadyWithCompletion:^{
-                                                                                                                  NSLog(@"USERNAME !!!!!!!!!!! %@",self.dataStore.userInfo.userName);
-                                                                                                                  [self updateUI];
-                                                                                                              }];
+            clientSecret:@"68cf1c07835d49908ddffbd94580dde9"
+             callbackURL:[NSURL URLWithString:@"http://fis.valosip.com"]
+              completion:^(InstagramLoginResponse *response, NSError *error) {
+                        NSLog(@"My Access Token is: %@", response.accessToken);
+                        self.userToken = response.accessToken;
+                        GetInstaData *data = [[GetInstaData alloc]initWithUserToken:self.userToken];
+                        [data getDataStoreReadyWithCompletion:^{
+                            NSLog(@"USERNAME !!!!!!!!!!! %@",self.dataStore.userInfo.userName);
+                            [self updateUI];
+                        }];
                                                                                                               
-                                                                                                          }];
+                }];
     
     
     [self presentViewController:viewController animated:YES completion:nil];
