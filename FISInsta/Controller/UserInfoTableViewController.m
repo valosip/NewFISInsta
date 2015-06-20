@@ -15,6 +15,11 @@
 @interface UserInfoTableViewController ()
 @property (strong,nonatomic) InstaObjectsDataStore *dataStore;
 @property (strong,nonatomic) NSString *userToken;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalNumberOfUserPosts;
+@property (weak, nonatomic) IBOutlet UILabel *totalNumberOfHashtagsUsed;
+@property (weak, nonatomic) IBOutlet UILabel *totalNumberOfLikes;
 @end
 
 @implementation UserInfoTableViewController
@@ -39,21 +44,30 @@
     //self.userNameLabel.text = self.dataStore.userInfo.userName;
 }
 -(void)login{
-    InstagramSimpleOAuthViewController*viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"3be1650732ff4b45b1887c3b333994ed"
-            clientSecret:@"68cf1c07835d49908ddffbd94580dde9"
-             callbackURL:[NSURL URLWithString:@"http://fis.valosip.com"]
-              completion:^(InstagramLoginResponse *response, NSError *error) {
-                        NSLog(@"My Access Token is: %@", response.accessToken);
-                        self.userToken = response.accessToken;
-                        GetInstaData *data = [[GetInstaData alloc]initWithUserToken:self.userToken];
-                        [data getDataStoreReadyWithCompletion:^{
-                            NSLog(@"USERNAME !!!!!!!!!!! %@",self.dataStore.userInfo.userName);
-                            [self updateUI];
-                        }];
-                                                                                                              
-                }];
-    
-    
+
+    InstagramSimpleOAuthViewController*viewController =
+    [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"3be1650732ff4b45b1887c3b333994ed"
+                                                    clientSecret:@"68cf1c07835d49908ddffbd94580dde9"
+                                                    callbackURL:[NSURL URLWithString:@"http://fis.valosip.com"]
+                                                    completion:^(InstagramLoginResponse *response, NSError *error) {
+                                                        NSLog(@"My Access Token is: %@", response.accessToken);
+                                                        self.userToken = response.accessToken;
+                                                        GetInstaData *data = [[GetInstaData alloc]initWithUserToken:self.userToken];
+                                                        [data getDataStoreReadyWithCompletion:^{
+                                                            
+                                                        NSLog(@"USERNAME !!!!!!!!!!! %@",self.dataStore.userInfo.userName);
+                                                            self.userNameLabel.text = [NSString stringWithFormat:@"%@",self.dataStore.userInfo.userName];
+                                                            self.userImageDisplay.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.dataStore.userInfo.profilePic]];
+                                                            self.userImageDisplay.layer.masksToBounds = YES;
+                                                            self.userImageDisplay.layer.cornerRadius = self.userImageDisplay.frame.size.height/2;
+                                                            self.userImageDisplay.layer.borderWidth = 0;
+                                                            self.userImageDisplay.layer.borderColor = [[UIColor whiteColor] CGColor];
+                                                            self.totalNumberOfUserPosts.text = [NSString stringWithFormat:@"%lu Posts",(unsigned long)self.dataStore.instaObjects.count];
+                                                            [self updateUI];
+                                                        }];
+                                                        
+    }];
+
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
@@ -62,12 +76,12 @@
     // Dispose of any resources that can be recreated.
 }
 //-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    
+//
 //    if ([segue.identifier isEqualToString: @"jim"]) {
-//        
-//        
+//
+//
 //    }
-//    
+//
 
 //    InstagramSimpleOAuthViewController*viewController = segue.destinationViewController;
 //    viewController = [[InstagramSimpleOAuthViewController alloc] initWithClientID:@"3be1650732ff4b45b1887c3b333994ed"
