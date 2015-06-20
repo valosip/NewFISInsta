@@ -46,11 +46,12 @@
         NSArray *dataArray = jsonDic[@"data"];
         for(NSDictionary *dataDic in dataArray){
             NSURL *url = [[NSURL alloc]initWithString: dataDic[@"images"][@"thumbnail"][@"url"]];
+            NSURL *largeImageUrl = [[NSURL alloc]initWithString: dataDic[@"images"][@"low_resolution"][@"url"]];
             NSString *likes = dataDic[@"likes"][@"count"];
             NSArray *HashTages = dataDic[@"tags"];
             //NSLog(@"images%@/n/n",url);
             InstaObject *dataObject = [[InstaObject alloc]initWithImageUrl:url
-                                                                     Likes:likes.integerValue HashTages:HashTages];
+                                                                     Likes:likes.integerValue HashTages:HashTages LargeImageUrl:largeImageUrl];
             [self.dataStore.instaObjects addObject:dataObject];
         }
     }
